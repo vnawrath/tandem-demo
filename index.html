@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <title>Tandem</title>
+
+  <!--- UPDATED DISTRIBUTION ----------------------->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4//dist/reveal.css">
+  <!--- END ----------------------->
+
+  <link href="highlight-darkplus.css" rel="stylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide">
+        <h1 class="title">Tandem</h1>
+        <p>Investment Platform Architecture Design</p>
+        <p>Viktor Nawrath</p>
+      </section>
+
+      <section>
+        <h2>What is <img src="images/tandem.png" alt="Tandem Logo"
+            style="border-radius: 16px; display:inline; height: 64px; margin-top: 0.1em; vertical-align: middle;" /> ?
+        </h2>
+
+        <ul>
+          <li>Investment fund investing in startups</li>
+          <li>Started by Alex Bean, co-founder of Divvy</li>
+        </ul>
+        <blockquote>Helping people who've done "it"</br>invest in those doing "it"</blockquote>
+      </section>
+
+      <section>
+        <section data-auto-animate>
+          <h2>Investment Platform</h2>
+          <h2>Content Platform</h2>
+        </section>
+        <section data-auto-animate>
+          <h2>Investment Platform</h2>
+          <p>Opportunities, reports, SWAG</p>
+          <h2>Content Platform</h2>
+        </section>
+        <section data-auto-animate>
+          <h2>Investment Platform</h2>
+          <p>Opportunities, reports, SWAG</p>
+          <h2>Content Platform</h2>
+          <p>Articles, experiences</p>
+        </section>
+      </section>
+
+      <section>
+        <section data-auto-animate>
+          <h2>Design Requirements</h2>
+        </section>
+        <section data-auto-animate>
+          <h2>Design Requirements</h2>
+          <p>Move from Wordpress-like PHP site</p>
+        </section>
+        <section data-auto-animate>
+          <h2>Design Requirements</h2>
+          <p>Move from Wordpress-like PHP site</p>
+          <p>More interactive content</p>
+        </section>
+        <section data-auto-animate>
+          <h2>Design Requirements</h2>
+          <p>Move from Wordpress-like PHP site</p>
+          <p>More interactive content</p>
+          <p>Robust and secure deployment</p>
+        </section>
+      </section>
+
+      <section>
+        <section data-auto-animate>
+          <h2>Design Considerations</h2>
+        </section>
+        <section data-auto-animate>
+          <h2>Design Considerations</h2>
+          <p>Headless CMS</p>
+        </section>
+        <section data-auto-animate>
+          <h2>Design Considerations</h2>
+          <p>Headless CMS</p>
+          <p>Server Rendered React</p>
+        </section>
+        <section data-auto-animate>
+          <h2>Design Considerations</h2>
+          <p>Headless CMS</p>
+          <p>Server Rendered React</p>
+          <p>Auth0 for authentication</p>
+        </section>
+        <section data-auto-animate>
+          <h2>Design Considerations</h2>
+          <p>Headless CMS</p>
+          <p>Server Rendered React</p>
+          <p>Auth0 for authentication</p>
+          <p>Deployed to AWS</p>
+        </section>
+      </section>
+
+      <section>
+        <h2>❌ Builder.io</h2>
+        <video controls>
+          <source src="images/builderio.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <section>
+        <h2>✅ Strapi.io</h2>
+        <video controls>
+          <source src="images/strapiio.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <section>
+        <img src="images/remix-glowing.svg" alt="Remix Logo" />
+      </section>
+
+      <section>
+        <section>
+          <h2>TailwindCSS</h2>
+          <h3>+ shadcn/ui</h2>
+        </section>
+
+        <section data-background-iframe="https://ui.shadcn.com/docs/components/button">
+        </section>
+      </section>
+
+      <section>
+        <h2>SST/pulumi</h2>
+        <pre>
+          <code class="hljs javascript" data-trim>
+            new sst.aws.Remix("WebFactory", {
+              path: "apps/web-factory/",
+              domain: {
+                name: "dev.factoryforgood.com",
+                redirects: ["www.dev.factoryforgood.com"],
+              },
+              environment: {
+                STRAPI_URL: process.env.STRAPI_URL,
+                STRAPI_TOKEN: process.env.STRAPI_TOKEN,
+                SESSION_SECRET: process.env.SESSION_SECRET,
+              },
+            });
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Architecture</h2>
+        <div style="height: 500px; overflow-y: scroll;">
+          <img src="images/architecture.jpg" alt="Architecture Diagram"
+            style="width: 100%; max-width: unset; height: auto; max-height: unset;" />
+        </div>
+      </section>
+
+      <section>
+        <h2>Questions?</h2>
+        <div style="height: 500px; overflow-y: scroll;">
+          <img src="images/investor-home.png" alt="Investor Dashboard"
+            style="width: 100%; max-width: unset; height: auto; max-height: unset;" />
+        </div>
+      </section>
+
+    </div>
+    <script src="script.js"></script>
+  </div>
+  <!-------- INJECTED PART -------------->
+
+  <script src="https://unpkg.com/reveal.js@4//dist/reveal.js"></script>
+
+  <script src="https://unpkg.com/reveal.js@4//plugin/highlight/highlight.js"></script>
+
+  <script src="https://unpkg.com/reveal.js@4//plugin/notes/notes.js"></script>
+
+  <script src="https://unpkg.com/reveal.js@4//plugin/search/search.js"></script>
+
+  <script src="https://unpkg.com/reveal.js@4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+
+      // added ex-post
+      slideNumber: 'c/t',
+
+      // Transition style
+      // transition: 'zoom', // none/fade/slide/convex/concave/zoom
+
+      // reveal.js plugins
+      plugins: [
+        RevealHighlight,
+        RevealNotes,
+        RevealSearch,
+        RevealZoom
+      ]
+    });
+  </script>
+
+</body>
+
+</html>
